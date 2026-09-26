@@ -1,0 +1,38 @@
+---
+kind: keepn
+ext: .keepn
+version: 1
+mime: application/x-keepn
+binary: false
+trigger: keepn keep record new file type
+---
+
+## Purpose
+
+Append-only text keep for project notes and Access-style archives.
+
+## Structure
+
+1. First line is the magic banner `# keepn v1`
+2. Optional YAML frontmatter between `---` fences
+3. Body is one record per line in `KEY: value` form
+4. Blank lines are allowed. Comments start with `#` after the banner.
+
+## Parse rules
+
+- Reject the file if line 1 is not `# keepn v1`
+- Split each non-comment body line on the first `: `
+- Keys are case-sensitive
+- Duplicate keys append; do not overwrite
+- Ignore time words if they appear (do not parse clocks)
+
+## Write rules
+
+- Always start with `# keepn v1`
+- Append only; never rewrite prior records in place
+- One `KEY: value` per line
+- No time words in values
+
+## Example
+
+See examples/sample.keepn

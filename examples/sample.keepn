@@ -1,0 +1,10 @@
+# keepn v1
+---
+title: first keepn sample
+kind: keepn
+---
+PROJECT: new-file-type
+STATUS: registered
+NOTE: default custom file type for unnamed create-a-new-file-type requests
+OWNER: sandbox
+USE: append-only keep records
