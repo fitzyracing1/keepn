@@ -1,0 +1,13 @@
+# keepn
+
+keepn is an append-only text file type.
+Extension: .keepn
+Banner: # keepn v1
+Optional YAML frontmatter.
+Body records are KEY: value, one per line.
+Duplicate keys append. Do not overwrite.
+No time words in values.
+Declared format only. Not an OS MIME type.
+Declaration: assets/keepn.kind
+Sample: examples/sample.keepn
+Machine pack: ai-discovery/pack.json

@@ -1,12 +1,12 @@
 # keepn
 
-Custom file type `.keepn` plus the `.kind` declaration format for this type.
+Custom file type `.keepn`.
 
-**Repo:** https://github.com/fitzyracing1/keepn
+**Repo:** https://github.com/fitzyracing1/keepn  
+**Pages:** https://fitzyracing1.github.io/keepn/  
+**AI discovery pack:** https://fitzyracing1.github.io/keepn/ai-discovery/
 
-This is a declared format. It is not an OS MIME install.
-
-Sibling type: [hwlog](https://github.com/fitzyracing1/hwlog)
+Declared format. Not an OS MIME install.
 
 ## .keepn
 
@@ -29,16 +29,23 @@ Rules:
 - Duplicate keys append; do not overwrite
 - No time words in values
 
-## Validate
+## Pages
+
+Site source is `docs/`. If the live URL 404s, enable Pages once:
+
+GitHub repo → Settings → Pages → Source: GitHub Actions
+
+## AI discovery pack
+
+Machine-readable pack for agents:
+
+- `ai-discovery/pack.json`
+- `ai-discovery/llms.txt`
+- `ai-discovery/AGENTS.md`
+- `ai-discovery/SKILL.md`
+
+Validate the type declaration:
 
 ```bash
 python3 scripts/validate-kind.py assets/keepn.kind
 ```
-
-## Layout
-
-- `assets/keepn.kind` — keepn declaration
-- `examples/sample.keepn` — valid sample
-- `scripts/validate-kind.py` — declaration validator
-- `references/kind-spec.md` — .kind spec
-- `SKILL.md` — agent skill for inventing more file types (each type ships in its own repo)

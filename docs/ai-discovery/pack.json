@@ -1,0 +1,23 @@
+{
+  "pack": "ai-discovery",
+  "name": "keepn",
+  "kind": "keepn",
+  "ext": ".keepn",
+  "version": 1,
+  "mime": "application/x-keepn",
+  "banner": "# keepn v1",
+  "binary": false,
+  "repo": "https://github.com/fitzyracing1/keepn",
+  "pages": "https://fitzyracing1.github.io/keepn/",
+  "declaration": "assets/keepn.kind",
+  "sample": "examples/sample.keepn",
+  "agents": "ai-discovery/AGENTS.md",
+  "llms": "ai-discovery/llms.txt",
+  "skill": "ai-discovery/SKILL.md",
+  "triggers": ["keepn", "keep record", ".keepn"],
+  "parse": {
+    "line1": "# keepn v1",
+    "records": "KEY: value",
+    "duplicates": "append"
+  }
+}
