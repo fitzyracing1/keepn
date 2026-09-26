@@ -1,0 +1,46 @@
+---
+kind: hwlog
+ext: .hwlog
+version: 1
+mime: application/x-hwlog
+binary: false
+trigger: hardware log hwlog prototype log BOM progress
+---
+
+## Purpose
+
+Append-only hardware prototype log. One file per project or one shared yard log. Built for phone voice-to-text updates that later map to Hardware-Prototype-Tracker issues.
+
+## Structure
+
+1. First line is the magic banner `# hwlog v1`
+2. Required YAML frontmatter between `---` fences with at least PROJECT
+3. Body is append-only entries
+4. An entry starts with a line `ENTRY: <integer>`
+5. Following lines until the next ENTRY or EOF are `KEY: value`
+6. Allowed keys: STATUS, PROGRESS, PART, BOM, SOURCE, BLOCKER, NEXT, NOTE, RIG, SEQ
+7. STATUS values: Concept, Design, Prototyping, Testing, Production Ready, Complete, On Hold
+8. PROGRESS is an integer 0-100
+9. SEQ is a monotone integer; do not reuse
+
+## Parse rules
+
+- Reject the file if line 1 is not `# hwlog v1`
+- Require frontmatter key PROJECT
+- Split each non-comment body line on the first `: `
+- Group lines under the most recent ENTRY
+- Duplicate keys inside one ENTRY append; do not overwrite
+- Unknown keys are kept as notes, not dropped
+- Do not parse clocks. If a date-like token appears, store it raw under NOTE
+
+## Write rules
+
+- Always start with `# hwlog v1`
+- Append only; never rewrite prior ENTRY blocks
+- Next ENTRY integer is max(existing)+1
+- One KEY per line
+- Phone dictation maps: project name to PROJECT, percent to PROGRESS, parts to PART or BOM, stuck items to BLOCKER, upcoming work to NEXT
+
+## Example
+
+See examples/sample.hwlog
