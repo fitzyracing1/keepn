@@ -49,3 +49,8 @@ Validate the type declaration:
 ```bash
 python3 scripts/validate-kind.py assets/keepn.kind
 ```
+
+## Documentation
+
+- In-repo docs: [docs/](docs/index.md)
+- Wiki: [https://github.com/fitzyracing1/keepn/wiki](https://github.com/fitzyracing1/keepn/wiki)
